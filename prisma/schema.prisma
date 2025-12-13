@@ -211,8 +211,12 @@ model Contact {
   googleContactId  String?   @db.VarChar(255)
   googleModifiedAt DateTime?
   
-  // Multi-source support (PHASE 11)
-  sourceType       String    @default("manual") @db.VarChar(20) // 'apple' | 'google' | 'both' | 'manual'
+  // Outlook Contacts Integration (PHASE 12)
+  outlookContactId String?   @db.VarChar(255)
+  outlookModifiedAt DateTime?
+  
+  // Multi-source support (PHASE 11-12)
+  sourceType       String    @default("manual") @db.VarChar(50) // 'apple' | 'google' | 'outlook' | 'all_three' | 'manual'
   syncVersion      Int       @default(1)
   
   createdAt        DateTime  @default(now())
@@ -225,6 +229,8 @@ model Contact {
   @@index([email])
   @@index([appleContactId])
   @@index([googleContactId])
+  @@index([outlookContactId])
+  @@index([sourceType])
   @@map("contacts")
 }
 
@@ -254,6 +260,20 @@ model GoogleContactsSync {
 
   @@index([userId])
   @@map("google_contacts_sync")
+}
+
+model OutlookContactsSync {
+  id                  BigInt    @id @default(autoincrement())
+  userId              String    @unique @db.VarChar(255)
+  status              String    @db.VarChar(50) @default("disconnected")
+  lastSyncAt          DateTime?
+  totalContactsSynced Int       @default(0)
+  enabled             Boolean   @default(true)
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+
+  @@index([userId])
+  @@map("outlook_contacts_sync")
 }
 
 model SyncConflict {

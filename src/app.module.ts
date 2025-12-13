@@ -10,6 +10,7 @@ import { GmailModule } from './integrations/gmail/gmail.module';
 import { AnalyticsModule } from './analytics/analytics.module';
 import { AppleContactsModule } from './apple-contacts/apple-contacts.module';
 import { GoogleContactsModule } from './google-contacts/google-contacts.module';
+import { OutlookContactsModule } from './outlook-contacts/outlook-contacts.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { GoogleContactsModule } from './google-contacts/google-contacts.module';
     AnalyticsModule,
     AppleContactsModule,
     GoogleContactsModule,
+    OutlookContactsModule,
   ],
   controllers: [],
   providers: [],
