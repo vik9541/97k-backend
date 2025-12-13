@@ -224,6 +224,8 @@ model Contact {
   
   // Relations
   syncConflicts    SyncConflict[]
+  activities       ContactActivity[]
+  deals            Deal[]
   
   @@index([userId])
   @@index([email])
@@ -293,4 +295,105 @@ model SyncConflict {
   @@index([contactId])
   @@index([userId])
   @@map("sync_conflicts")
+}
+
+// ============================================
+// PHASE 13: ANALYTICS DASHBOARD
+// ============================================
+
+model AnalyticsCache {
+  id          String    @id @default(uuid())
+  key         String    @unique @db.VarChar(255) // Cache key: 'dashboard_kpis_userId', 'chart_data_userId'
+  data        Json      // Cached JSON data
+  userId      String?   @db.VarChar(255)
+  expiresAt   DateTime  // TTL expiration
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([key])
+  @@index([userId])
+  @@index([expiresAt])
+  @@map("analytics_cache")
+}
+
+model AnalyticsEvent {
+  id          BigInt    @id @default(autoincrement())
+  userId      String    @db.VarChar(255)
+  contactId   BigInt?   // Related contact if applicable
+  
+  // Event details
+  eventType   String    @db.VarChar(100) // 'contact_created', 'contact_updated', 'contact_synced', 'order_created', etc.
+  eventData   Json?     // Additional event metadata
+  
+  // Metrics for aggregation
+  value       Decimal?  @db.Decimal(15, 2) // Monetary value if applicable
+  
+  // Timestamps
+  occurredAt  DateTime  @default(now())
+  createdAt   DateTime  @default(now())
+
+  @@index([userId])
+  @@index([contactId])
+  @@index([eventType])
+  @@index([occurredAt])
+  @@map("analytics_events")
+}
+
+model ContactActivity {
+  id          BigInt    @id @default(autoincrement())
+  userId      String    @db.VarChar(255)
+  contactId   BigInt
+  
+  // Activity details
+  activityType String   @db.VarChar(100) // 'email', 'call', 'meeting', 'note', 'task', 'deal_update'
+  description  String?  @db.Text
+  metadata     Json?    // Additional activity data
+  
+  // Engagement scoring
+  engagementScore Int   @default(0) // 0-100 contribution to engagement
+  
+  // Timestamps
+  occurredAt   DateTime @default(now())
+  createdAt    DateTime @default(now())
+
+  // Relations
+  contact      Contact  @relation(fields: [contactId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([contactId])
+  @@index([activityType])
+  @@index([occurredAt])
+  @@map("contact_activities")
+}
+
+model Deal {
+  id           BigInt    @id @default(autoincrement())
+  userId       String    @db.VarChar(255)
+  contactId    BigInt?
+  
+  // Deal info
+  name         String    @db.VarChar(255)
+  value        Decimal   @db.Decimal(15, 2)
+  currency     String    @default("RUB") @db.VarChar(10)
+  
+  // Pipeline
+  stage        String    @db.VarChar(100) // 'lead', 'qualified', 'proposal', 'negotiation', 'closed_won', 'closed_lost'
+  probability  Int       @default(0) // 0-100%
+  
+  // Dates
+  expectedCloseDate DateTime?
+  closedAt     DateTime?
+  
+  // Timestamps
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  // Relations
+  contact      Contact?  @relation(fields: [contactId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+  @@index([contactId])
+  @@index([stage])
+  @@index([expectedCloseDate])
+  @@map("deals")
 }
