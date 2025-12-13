@@ -5,7 +5,7 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { ProductsModule } from './products/products.module';
 import { OrdersModule } from './orders/orders.module';
-import { GdprModule } from './gdpr/gdpr.module';
+// import { GdprModule } from './gdpr/gdpr.module'; // TODO: Fix GDPR module
 import { GmailModule } from './integrations/gmail/gmail.module';
 import { AnalyticsModule } from './analytics/analytics.module';
 import { AppleContactsModule } from './apple-contacts/apple-contacts.module';
@@ -26,7 +26,7 @@ import { VictorSystemModule } from './integrations/system/victor-system.module';
     UsersModule,
     ProductsModule,
     OrdersModule,
-    GdprModule,
+    // GdprModule, // TODO: Fix GDPR module
     GmailModule,
     AnalyticsModule,
     AppleContactsModule,

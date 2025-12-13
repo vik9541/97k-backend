@@ -104,7 +104,7 @@ describe('VictorSystemConnector', () => {
       const status = await service.getSystemStatus();
       
       expect(status.telegram.connected).toBe(true);
-      expect(status.telegram.botUsername).toBe('@97v_bot');
+      expect(status.telegram.botUsername).toBe('@LavrentevViktor_bot');
     });
   });
 

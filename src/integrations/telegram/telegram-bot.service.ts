@@ -3,7 +3,7 @@ import { PrismaService } from '../../database/prisma.service';
 
 // ============================================
 // TELEGRAM BOT SERVICE
-// @97v_bot - основной канал ввода для Виктора
+// @LavrentevViktor_bot - основной канал ввода для Виктора
 // ============================================
 
 export interface TelegramUpdate {
@@ -102,7 +102,7 @@ export class TelegramBotService implements OnModuleInit {
   
   // Конфигурация бота
   private readonly BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '';
-  private readonly BOT_USERNAME = '@97v_bot';
+  private readonly BOT_USERNAME = '@LavrentevViktor_bot';
   private readonly TELEGRAM_API = 'https://api.telegram.org/bot';
   
   // ID Виктора в Telegram (настроить после первого сообщения)
@@ -266,7 +266,7 @@ export class TelegramBotService implements OnModuleInit {
     const welcomeMessage = `
 🌟 *Добро пожаловать, Виктор Петрович!*
 
-Я ваш персональный ассистент @97v_bot.
+Я ваш персональный ассистент @LavrentevViktor_bot.
 
 *Что я умею:*
 📝 Записывать заметки и идеи

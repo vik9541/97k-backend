@@ -117,7 +117,7 @@ export class VictorSystemConnector implements OnModuleInit {
       },
       telegram: {
         connected: !!process.env.TELEGRAM_BOT_TOKEN,
-        botUsername: '@97v_bot',
+        botUsername: '@LavrentevViktor_bot',
       },
       database: {
         connected: true,

@@ -4,7 +4,7 @@ import { PrismaService } from '../../database/prisma.service';
 
 // ============================================
 // TELEGRAM BOT SERVICE TESTS
-// @97v_bot для Виктора Лаврентьева
+// @LavrentevViktor_bot для Виктора Лаврентьева
 // ============================================
 
 describe('TelegramBotService', () => {
@@ -242,7 +242,7 @@ describe('TelegramBotService', () => {
   });
 
   describe('Victor-specific scenarios', () => {
-    it('should be configured for @97v_bot', () => {
+    it('should be configured for @LavrentevViktor_bot', () => {
       // Service should be ready for Victor
       expect(service).toBeDefined();
     });

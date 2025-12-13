@@ -11,7 +11,7 @@ import { TelegramBotService, TelegramUpdate } from './telegram-bot.service';
 
 // ============================================
 // TELEGRAM BOT CONTROLLER
-// Webhook endpoint для @97v_bot
+// Webhook endpoint для @LavrentevViktor_bot
 // ============================================
 
 @Controller('api/telegram')
@@ -46,7 +46,7 @@ export class TelegramBotController {
   @Get('health')
   getHealth() {
     return {
-      bot: '@97v_bot',
+      bot: '@LavrentevViktor_bot',
       status: 'active',
       owner: 'Лаврентьев Виктор Петрович',
       email: 'info@97v.ru',

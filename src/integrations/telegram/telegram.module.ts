@@ -5,7 +5,7 @@ import { DatabaseModule } from '../../database/database.module';
 
 // ============================================
 // TELEGRAM BOT MODULE
-// @97v_bot - персональный бот Виктора
+// @LavrentevViktor_bot - персональный бот Виктора
 // ============================================
 
 @Module({
