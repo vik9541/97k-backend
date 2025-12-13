@@ -11,6 +11,10 @@ import { AnalyticsModule } from './analytics/analytics.module';
 import { AppleContactsModule } from './apple-contacts/apple-contacts.module';
 import { GoogleContactsModule } from './google-contacts/google-contacts.module';
 import { OutlookContactsModule } from './outlook-contacts/outlook-contacts.module';
+// Victor System Integration
+import { AppleIntegrationModule } from './integrations/apple/apple.module';
+import { TelegramBotModule } from './integrations/telegram/telegram.module';
+import { VictorSystemModule } from './integrations/system/victor-system.module';
 
 @Module({
   imports: [
@@ -28,6 +32,10 @@ import { OutlookContactsModule } from './outlook-contacts/outlook-contacts.modul
     AppleContactsModule,
     GoogleContactsModule,
     OutlookContactsModule,
+    // Victor System Integration (info@97v.ru - PRIMARY_ADMIN)
+    AppleIntegrationModule,
+    TelegramBotModule,
+    VictorSystemModule,
   ],
   controllers: [],
   providers: [],
