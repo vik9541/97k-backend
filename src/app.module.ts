@@ -8,6 +8,7 @@ import { OrdersModule } from './orders/orders.module';
 import { GdprModule } from './gdpr/gdpr.module';
 import { GmailModule } from './integrations/gmail/gmail.module';
 import { AnalyticsModule } from './analytics/analytics.module';
+import { AppleContactsModule } from './apple-contacts/apple-contacts.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { AnalyticsModule } from './analytics/analytics.module';
     GdprModule,
     GmailModule,
     AnalyticsModule,
+    AppleContactsModule,
   ],
   controllers: [],
   providers: [],
