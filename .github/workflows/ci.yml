@@ -44,10 +44,17 @@ jobs:
           cache: 'npm'
       
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --ignore-scripts
       
-      - name: Generate Prisma
-        run: npm run prisma:generate
+      - name: Generate Prisma Client
+        run: npx prisma generate
+        env:
+          DATABASE_URL: postgresql://test:test@localhost:5432/97k_test
+      
+      - name: Run Prisma migrations
+        run: npx prisma migrate deploy
+        env:
+          DATABASE_URL: postgresql://test:test@localhost:5432/97k_test
       
       - name: Lint
         run: npm run lint
@@ -59,6 +66,9 @@ jobs:
         run: npm run test:cov
         env:
           DATABASE_URL: postgresql://test:test@localhost:5432/97k_test
+          JWT_SECRET: test-secret-key-for-ci
+          JWT_EXPIRATION: 24h
+          NODE_ENV: test
       
       - name: Upload coverage
         uses: codecov/codecov-action@v3
