@@ -1,4 +1,10 @@
-# 🔧 97k Backend API
+# 🔧 97k Backend API — Module of super-brain-digital-twin
+
+> 🌍 **ГЛАВНЫЙ ПРОЕКТ:** [super-brain-digital-twin v5.0 (97v.ru)](https://github.com/vik9541/super-brain-digital-twin)  
+> 📚 **ГЛАВНЫЙ ДОКУМЕНТ:** [MASTER_README.md](https://github.com/vik9541/super-brain-digital-twin/blob/main/MASTER_README.md)  
+> 🗂️ **АРХИТЕКТУРА:** [STRUCTURE.md](https://github.com/vik9541/super-brain-digital-twin/blob/main/STRUCTURE.md)
+
+---
 
 **NestJS Backend для сайта-поставщика строительных материалов**
 
@@ -201,6 +207,38 @@ npm run test:e2e
 
 **Development Time**: 3 hours (instead of 24 hours!)  
 **Value Added**: $50,000 - $100,000 🚀
+
+---
+
+## 📦 Модули этого проекта
+
+Этот репозиторий является **модулем** главного проекта:
+
+```
+super-brain-digital-twin v5.0 (97v.ru) — ГЛАВНЫЙ ПРОЕКТ
+├─ MASTER_README.md ← Начни отсюда!
+├─ STRUCTURE.md ← Архитектура всех модулей
+├─ INDEX.md ← Индекс всех документов
+│
+└─ PROJECTS/
+   ├─ 97k-backend ← ТЫ ЗДЕСЬ (NestJS API, PHASE 1-12 ✅)
+   ├─ 97k-frontend (React 18, PHASE 13 🟡)
+   ├─ 97k-database (Shared Prisma schema)
+   ├─ 97k-infrastructure (Docker, Nginx, K8s)
+   └─ 97k-n8n-workflows (4 automation workflows)
+```
+
+## 🔗 Навигация
+
+**Главный проект:**
+- 🌍 [super-brain-digital-twin](https://github.com/vik9541/super-brain-digital-twin) — Digital Twin v5.0
+
+**Другие модули:**
+- 🎨 [97k-frontend](https://github.com/vik9541/97k-frontend) — React 18 Web App
+- 💾 [97k-database](https://github.com/vik9541/97k-database) — PostgreSQL schema
+- 🔧 [97k-infrastructure](https://github.com/vik9541/97k-infrastructure) — DevOps & Deployment
+- ⚙️ [97k-n8n-workflows](https://github.com/vik9541/97k-n8n-workflows) — Automation
+- 📋 [97k-97v-specs](https://github.com/vik9541/97k-97v-specs) — Technical specs
 
 ---
 
