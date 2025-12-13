@@ -187,6 +187,7 @@ model OrderItem {
 
 // ============================================
 // PHASE 10: APPLE CONTACTS INTEGRATION
+// PHASE 11: GOOGLE CONTACTS + MULTI-SOURCE
 // ============================================
 
 model Contact {
@@ -205,6 +206,13 @@ model Contact {
   // Apple Contacts Integration (PHASE 10)
   appleContactId   String?   @db.VarChar(255)
   appleModifiedAt  DateTime?
+  
+  // Google Contacts Integration (PHASE 11)
+  googleContactId  String?   @db.VarChar(255)
+  googleModifiedAt DateTime?
+  
+  // Multi-source support (PHASE 11)
+  sourceType       String    @default("manual") @db.VarChar(20) // 'apple' | 'google' | 'both' | 'manual'
   syncVersion      Int       @default(1)
   
   createdAt        DateTime  @default(now())
@@ -216,6 +224,7 @@ model Contact {
   @@index([userId])
   @@index([email])
   @@index([appleContactId])
+  @@index([googleContactId])
   @@map("contacts")
 }
 
@@ -231,6 +240,20 @@ model AppleContactsSync {
 
   @@index([userId])
   @@map("apple_contacts_sync")
+}
+
+model GoogleContactsSync {
+  id                  BigInt    @id @default(autoincrement())
+  userId              String    @unique @db.VarChar(255)
+  lastSyncAt          DateTime?
+  syncToken           String?   @db.VarChar(255)
+  totalContactsSynced Int       @default(0)
+  enabled             Boolean   @default(true)
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+
+  @@index([userId])
+  @@map("google_contacts_sync")
 }
 
 model SyncConflict {
