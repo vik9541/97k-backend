@@ -1,520 +1,223 @@
-# 📚 ПОЛНАЯ ДОКУМЕНТАЦИЯ ПРОЕКТА super-brain-digital-twin v5.0
+# 📚 ПОЛНАЯ ДОКУМЕНТАЦИЯ SUPER BRAIN v5.0
 
-**Дата**: 13 декабря 2025  
-**Версия**: v5.0 GLOBAL EDITION  
-**Статус**: 🟢 PRODUCTION READY  
-**Домены**: 97v.ru (главный), 97k.ru (B2B/B2C), api.97k.ru (API)
-
----
-
-## 🎯 ОГЛАВЛЕНИЕ
-
-1. [Обзор проекта](#1-обзор-проекта)
-2. [Архитектура системы](#2-архитектура-системы)
-3. [Все репозитории](#3-все-репозитории)
-4. [Документация по модулям](#4-документация-по-модулям)
-5. [Технические спецификации](#5-технические-спецификации)
-6. [База данных](#6-база-данных)
-7. [API Endpoints](#7-api-endpoints)
-8. [Развертывание](#8-развертывание)
-9. [Фазы разработки](#9-фазы-разработки)
-10. [Быстрые ссылки](#10-быстрые-ссылки)
+**Последнее обновление:** 13 декабря 2025, 14:40 MSK  
+**Версия:** v5.0 GLOBAL (Updated for Lavrentiev Victor)  
+**Главный администратор:** Лаврентьев Виктор Петрович (Руководитель города)  
+**Email системы:** info@97v.ru  
+**Статус:** 🟢 PRODUCTION READY FOR VICTOR
 
 ---
 
-# 1. ОБЗОР ПРОЕКТА
+## 🎯 PRIMARY ADMIN: Лаврентьев Виктор Петрович
 
-## 🌍 Главный проект: super-brain-digital-twin
-
-**Описание**: Цифровой Двойник с ИИ — Self-improving Three-Agent System
-
-**Ключевые документы:**
-- 📄 [MASTER_README.md](https://github.com/vik9541/super-brain-digital-twin/blob/main/MASTER_README.md) — **НАЧНИ ОТСЮДА!**
-- 📄 [SUPER_BRAIN_v5.0_GLOBAL_EDITION.md](https://github.com/vik9541/super-brain-digital-twin/blob/main/SUPER_BRAIN_v5.0_GLOBAL_EDITION.md) — Детальная спецификация v5.0
-- 📄 [STRUCTURE.md](https://github.com/vik9541/super-brain-digital-twin/blob/main/STRUCTURE.md) — Архитектура всех проектов
-- 📄 [docs/INDEX.md](https://github.com/vik9541/super-brain-digital-twin/blob/main/docs/INDEX.md) — Индекс всех документов
-- 📄 [PHASE_MAPPING.md](https://github.com/vik9541/super-brain-digital-twin/blob/main/PHASE_MAPPING.md) — Связь PHASE с TASK-v5
-
-## 🤖 Три агента v5.0
-
-| Агент | Функция | Запуск |
-|-------|---------|--------|
-| **PRIMARY ANALYZER** | Реал-тайм анализ файлов, извлечение данных | Постоянно |
-| **ORGANIZER** | Организация связей, создание событий | Постоянно |
-| **MASTER TEACHER** | Ночной анализ, поиск паттернов, оптимизация | 01:00 CronJob |
-
-## 📊 Текущий статус
-
-- ✅ Backend API: PHASE 12 COMPLETE (5500+ LOC, 117+ tests)
-- ✅ Infrastructure: PRODUCTION READY
-- ✅ Database: 17+ таблиц, синхронизировано
-- 🟡 Frontend: PHASE 13 PLANNED
-- ✅ Automation: 4 n8n workflows активны
-
----
-
-# 2. АРХИТЕКТУРА СИСТЕМЫ
-
-## 🏗️ Иерархия проектов
+**VICTOR-CENTRIC SYSTEM**
 
 ```
-super-brain-digital-twin (97v.ru) ← ГЛАВНЫЙ ПРОЕКТ
-│
-├─── MASTER_README.md (v5.0) ← ИСТОЧНИК ИСТИНЫ
-├─── STRUCTURE.md ← Архитектура
-├─── PHASE_MAPPING.md ← Связь с TASK-v5
-│
-├─── 🤖 3 АГЕНТА v5.0
-│    ├─ PRIMARY_ANALYZER
-│    ├─ ORGANIZER
-│    └─ MASTER_TEACHER
-│
-└─── 🛠️ МОДУЛИ (97k-*)
-     ├─ 97k-backend ← API (PHASE 1-12 ✅)
-     ├─ 97k-frontend ← Web App (PHASE 13 🟡)
-     ├─ 97k-database ← PostgreSQL Schema
-     ├─ 97k-infrastructure ← DevOps
-     ├─ 97k-n8n-workflows ← Automation
-     └─ 97k-97v-specs ← Specifications
+ВСЯ ИНФОРМАЦИЯ В СИСТЕМЕ:
+↓
+НАБЛЮДЕНИЯ ВИКТОРА ЧЕРЕЗ TELEGRAM BOT
+↓
+Обработка 3-Мя АГЕНТАМИ
+↓
+ДАШБОАРД + EMAIL + INSIGHTS
+
+Главные Email: info@97v.ru
+Telegram Bot: @97v_bot
+Role: PRIMARY_ADMIN (Level 100)
+Access: Full System Access
+Device: iPhone (iCloud Sync)
 ```
-
-## 🔄 Data Flow
-
-```
-User Request
-    ↓
-[NGINX] (97k-infrastructure)
-    ↓
-[97k-backend API] (NestJS)
-    ├─ Auth → JWT
-    ├─ Logic → Services
-    ├─ DB → Prisma ORM
-    └─ Integrations → 1C, EDO, n8n
-    ↓
-[PostgreSQL] (97k-database / Supabase)
-    ↓
-[n8n Workflows] (97k-n8n-workflows)
-    ↓
-[External Systems: 1C, EDO, Payments]
-```
-
-## 🌐 Domain Mapping
-
-| Domain | Сервис | Порт |
-|--------|--------|------|
-| **97v.ru** | super-brain-digital-twin (Main) | - |
-| **api.97k.ru** | 97k-backend (NestJS API) | 3000 |
-| **www.97k.ru** | 97k-frontend (React) | 3001 |
 
 ---
 
-# 3. ВСЕ РЕПОЗИТОРИИ
+## 📋 ОГЛАВЛЕНИЕ
 
-## 📦 Главный проект
-
-| Репозиторий | Описание | Статус | Ссылка |
-|-------------|----------|--------|--------|
-| **super-brain-digital-twin** | Digital Twin v5.0, 3-Agent System | 🟢 ACTIVE | [GitHub](https://github.com/vik9541/super-brain-digital-twin) |
-
-## 📦 Модули 97k
-
-| Репозиторий | Описание | Статус | Ссылка |
-|-------------|----------|--------|--------|
-| **97k-backend** | NestJS API, PHASE 1-12 | ✅ COMPLETE | [GitHub](https://github.com/vik9541/97k-backend) |
-| **97k-frontend** | React 18 + Next.js | 🟡 PHASE 13 | [GitHub](https://github.com/vik9541/97k-frontend) |
-| **97k-database** | PostgreSQL + Prisma | ✅ SYNCED | [GitHub](https://github.com/vik9541/97k-database) |
-| **97k-infrastructure** | Docker, K8s, NGINX | ✅ PRODUCTION | [GitHub](https://github.com/vik9541/97k-infrastructure) |
-| **97k-n8n-workflows** | 4 automation workflows | ✅ ACTIVE | [GitHub](https://github.com/vik9541/97k-n8n-workflows) |
-| **97k-97v-specs** | Technical specifications | ✅ UPDATED | [GitHub](https://github.com/vik9541/97k-97v-specs) |
+1. [Основная информация](#основная-информация)
+2. [Архитектура системы](#архитектура-системы)
+3. [7 репозиториев](#7-репозиториев)
+4. [Компоненты](#компоненты)
+5. [Технологический стек](#технологический-стек)
+6. [База данных](#база-данных)
+7. [API Endpoints](#api-endpoints)
+8. [Развертывание](#развертывание)
+9. [Фазы разработки](#фазы-разработки)
+10. [Быстрые ссылки](#быстрые-ссылки)
 
 ---
 
-# 4. ДОКУМЕНТАЦИЯ ПО МОДУЛЯМ
+## Основная информация
 
-## 📘 super-brain-digital-twin
+### 🎯 VICTOR-CENTRIC INTELLIGENCE SYSTEM
 
-| Документ | Описание | Ссылка |
-|----------|----------|--------|
-| MASTER_README.md | Главный документ v5.0 | [Открыть](https://github.com/vik9541/super-brain-digital-twin/blob/main/MASTER_README.md) |
-| SUPER_BRAIN_v5.0_GLOBAL_EDITION.md | Полная спецификация | [Открыть](https://github.com/vik9541/super-brain-digital-twin/blob/main/SUPER_BRAIN_v5.0_GLOBAL_EDITION.md) |
-| STRUCTURE.md | Иерархия проектов | [Открыть](https://github.com/vik9541/super-brain-digital-twin/blob/main/STRUCTURE.md) |
-| PHASE_MAPPING.md | Связь PHASE с TASK-v5 | [Открыть](https://github.com/vik9541/super-brain-digital-twin/blob/main/PHASE_MAPPING.md) |
-| docs/INDEX.md | Индекс документов | [Открыть](https://github.com/vik9541/super-brain-digital-twin/blob/main/docs/INDEX.md) |
-| ARCHITECTURE.md | Архитектура системы | [Открыть](https://github.com/vik9541/super-brain-digital-twin/blob/main/ARCHITECTURE.md) |
-| MODULES_MANIFEST.md | Список модулей | [Открыть](https://github.com/vik9541/super-brain-digital-twin/blob/main/MODULES_MANIFEST.md) |
-| CHECKLIST.md | Статус задач | [Открыть](https://github.com/vik9541/super-brain-digital-twin/blob/main/CHECKLIST.md) |
+**Главный администратор:**
+- Наме: Лаврентьев Виктор Петрович
+- Должность: Руководитель города
+- Email: **info@97v.ru** (ГЛАВНЫЙ EMAIL СИСТЕМЫ)
+- Роль: PRIMARY_ADMIN
+- Уровень: Level 100 (Full Access)
+- Telegram: @97v_bot
+- Устройство: iPhone (iCloud Sync)
 
-## 📘 97k-backend
+### Принцип:
 
-| Документ | Описание | Ссылка |
-|----------|----------|--------|
-| README.md | Обзор backend | [Открыть](https://github.com/vik9541/97k-backend/blob/main/README.md) |
-| SETUP.md | Локальная установка | [Открыть](https://github.com/vik9541/97k-backend/blob/main/SETUP.md) |
-| STRUCTURE.md | Архитектура проектов | [Открыть](https://github.com/vik9541/97k-backend/blob/main/STRUCTURE.md) |
-| CHANGELOG.md | История изменений | [Открыть](https://github.com/vik9541/97k-backend/blob/main/CHANGELOG.md) |
+```
+Всё данные в системе = Наблюдения Виктора
 
-### PHASE Reports (97k-backend)
-
-| PHASE | Описание | Ссылка |
-|-------|----------|--------|
-| PHASE 4 | Orders System | [Открыть](https://github.com/vik9541/97k-backend/blob/main/PHASE4_REPORT.md) |
-| PHASE 9 | GDPR & Privacy | [Открыть](https://github.com/vik9541/97k-backend/blob/main/PHASE9_REPORT.md) |
-| PHASE 9 Final | Final Report RU | [Открыть](https://github.com/vik9541/97k-backend/blob/main/PHASE9_FINAL_RU.md) |
-| PHASE 10 | Apple Contacts (iOS) | [Открыть](https://github.com/vik9541/97k-backend/blob/main/PHASE_10_APPLE_CONTACTS_INTEGRATION.md) |
-| PHASE 10 Summary | Итоги PHASE 10 | [Открыть](https://github.com/vik9541/97k-backend/blob/main/PHASE_10_FINAL_SUMMARY_RU.md) |
-| PHASE 10 Quick Start | Быстрый старт | [Открыть](https://github.com/vik9541/97k-backend/blob/main/PHASE_10_QUICK_START_RU.md) |
-| PHASE 11 | Google Contacts (Android) | [Открыть](https://github.com/vik9541/97k-backend/blob/main/PHASE_11_COMPLETE_REPORT.md) |
-| PHASE 11 Android | Android код | [Открыть](https://github.com/vik9541/97k-backend/blob/main/PHASE_11_ANDROID_CODE.md) |
-| PHASE 11 TZ | Техническое задание | [Открыть](https://github.com/vik9541/97k-backend/blob/main/PHASE_11_ANDROID_TZ_COMPLETE.md) |
-| PHASE 11 Deploy | Deployment Guide | [Открыть](https://github.com/vik9541/97k-backend/blob/main/PHASE_11_DEPLOYMENT_GUIDE.md) |
-| PHASE 11 Backend | Backend Report | [Открыть](https://github.com/vik9541/97k-backend/blob/main/PHASE_11_BACKEND_COMPLETE_REPORT.md) |
-| PHASE 12 | Outlook Contacts (Web) | [Открыть](https://github.com/vik9541/97k-backend/blob/main/PHASE_12_FINAL_REPORT.md) |
-| PHASE 12 TZ | Полное ТЗ | [Открыть](https://github.com/vik9541/97k-backend/blob/main/PHASE_12_COMPLETE_TZ_RUSSIAN.md) |
-| PHASE 12 Guide | Implementation Guide | [Открыть](https://github.com/vik9541/97k-backend/blob/main/PHASE_12_IMPLEMENTATION_GUIDE.md) |
-
-### Implementation Guides (97k-backend)
-
-| Документ | Описание | Ссылка |
-|----------|----------|--------|
-| IOS_IMPLEMENTATION_GUIDE.md | iOS Implementation | [Открыть](https://github.com/vik9541/97k-backend/blob/main/IOS_IMPLEMENTATION_GUIDE.md) |
-| PHASE_11_ANDROID_CODE.md | Android Code (2500+ LOC) | [Открыть](https://github.com/vik9541/97k-backend/blob/main/PHASE_11_ANDROID_CODE.md) |
-
-## 📘 97k-database
-
-| Документ | Описание | Ссылка |
-|----------|----------|--------|
-| README.md | Database overview | [Открыть](https://github.com/vik9541/97k-database/blob/main/README.md) |
-| prisma/schema.prisma | Database schema | [Открыть](https://github.com/vik9541/97k-database/blob/main/prisma/schema.prisma) |
-
-## 📘 97k-infrastructure
-
-| Документ | Описание | Ссылка |
-|----------|----------|--------|
-| README.md | Infrastructure overview | [Открыть](https://github.com/vik9541/97k-infrastructure/blob/main/README.md) |
-| docker-compose.yml | Docker Compose | [Открыть](https://github.com/vik9541/97k-infrastructure/blob/main/docker-compose.yml) |
-| nginx.conf | NGINX Config | [Открыть](https://github.com/vik9541/97k-infrastructure/blob/main/nginx.conf) |
-| deploy-to-droplet.sh | Deployment Script | [Открыть](https://github.com/vik9541/97k-infrastructure/blob/main/deploy-to-droplet.sh) |
-
-## 📘 97k-97v-specs
-
-| Документ | Описание | Ссылка |
-|----------|----------|--------|
-| README.md | Specs overview | [Открыть](https://github.com/vik9541/97k-97v-specs/blob/main/README.md) |
-| docs/TZ.md | Technical Specification | [Открыть](https://github.com/vik9541/97k-97v-specs/blob/main/docs/TZ.md) |
-| docs/functional-requirements.md | Requirements | [Открыть](https://github.com/vik9541/97k-97v-specs/blob/main/docs/functional-requirements.md) |
-| docs/database-architecture.md | DB Architecture | [Открыть](https://github.com/vik9541/97k-97v-specs/blob/main/docs/database-architecture.md) |
-| docs/n8n-workflows.md | n8n Documentation | [Открыть](https://github.com/vik9541/97k-97v-specs/blob/main/docs/n8n-workflows.md) |
-| docs/infrastructure.md | Infrastructure Docs | [Открыть](https://github.com/vik9541/97k-97v-specs/blob/main/docs/infrastructure.md) |
+Источник: Telegram Bot @97v_bot
+   ↓
+   Виктор вводит через и система обрабатывает
+   ↓
+Обработка: 3 агента (Analyzer, Organizer, Teacher)
+   ↓
+Вывод: Dashboard + Email info@97v.ru + Insights
+```
 
 ---
 
-# 5. ТЕХНИЧЕСКИЕ СПЕЦИФИКАЦИИ
+## Архитектура системы
 
-## 🔧 Технологический стек
+### Иерархия:
 
-### Backend (97k-backend)
-- **Framework**: NestJS (TypeScript)
-- **ORM**: Prisma 5.x
-- **Database**: PostgreSQL 15 (via Supabase)
-- **Auth**: JWT + Passport + OAuth 2.0
-- **Testing**: Jest (117+ tests)
+```
+ЛАВРЕНТЬЕВ ВИКТОР (Примари Admin)
+   ↓
+   TELEGRAM BOT @97v_bot (данные вход)
+   ↓
+   NestJS Backend API (PHASE 1-12)
+   ↓
+   3 Агента:
+   ├─ PRIMARY ANALYZER (всегда)
+   ├─ ORGANIZER (всегда)
+   └─ MASTER TEACHER (01:00)
+   ↓
+   PostgreSQL + Victor-centric Database
+   ↓
+   Дашбоард + Email (info@97v.ru) + Инсайты
+```
 
-### Frontend (97k-frontend) — Planned
-- **Framework**: React 18 + Next.js 15
-- **Styling**: TailwindCSS
-- **State**: React Query
-- **Type Safety**: TypeScript
+---
 
-### Infrastructure (97k-infrastructure)
-- **Container**: Docker + Docker Compose
-- **Orchestration**: Kubernetes (DigitalOcean DOKS)
-- **Proxy**: NGINX
-- **CI/CD**: GitHub Actions
+## 7 РЕПОЗИТОРИЕВ
+
+1. **super-brain-digital-twin** (Майн)
+   - https://github.com/vik9541/super-brain-digital-twin
+   - Оставка и ТЗ
+
+2. **97k-backend** (NestJS API)
+   - https://github.com/vik9541/97k-backend
+   - 5,500+ LOC, 117+ тестов (ПХ 1-12 готовы)
+
+3. **97k-frontend** (React)
+   - https://github.com/vik9541/97k-frontend
+   - ПХ 13 в разработке
+
+4. **97k-telegram-bot** (Telegram Integration)
+   - https://github.com/vik9541/97k-telegram-bot
+   - Bot @97v_bot, данные От Виктора
+
+5. **97k-apple-sync** (iPhone iCloud)
+   - https://github.com/vik9541/97k-apple-sync
+   - Синхронизация контактов из iPhone
+
+6. **97k-infrastructure** (DevOps)
+   - https://github.com/vik9541/97k-infrastructure
+   - Docker, K8s, NGINX, Monitoring
+
+7. **97k-ai-agents** (AI Agents)
+   - https://github.com/vik9541/97k-ai-agents
+   - Analyzer, Organizer, Master Teacher logic
+
+---
+
+## Компоненты
+
+### 3 Агента v5.0:
+
+| Агент | Функция | Операцию с данными Виктора |
+|-------|---------|-------------------|
+| **PRIMARY ANALYZER** | Обработка НАБЛЮДЕНИЙ | Всегда |
+| **ORGANIZER** | Организация, планирование | Всегда |
+| **MASTER TEACHER** | Глубокий анализ, рекомендации | 01:00 каждую ночь |
+
+---
+
+## Технологический стек
+
+- **Backend**: NestJS + TypeScript + Prisma + PostgreSQL
+- **Frontend**: React 18 + TailwindCSS + WebSocket
+- **DevOps**: Docker + Kubernetes + GitHub Actions
 - **Monitoring**: Prometheus + Grafana
-
-### Automation (97k-n8n-workflows)
-- **Platform**: n8n (open-source)
-- **Workflows**: 4 core workflows
-- **Integration**: Webhooks to API
-
-## 📐 Code Statistics
-
-| Модуль | LOC | Tests | Files |
-|--------|-----|-------|-------|
-| 97k-backend | 5500+ | 117+ | 80+ |
-| PHASE 10 (Apple) | 880 | 9/9 | 11 |
-| PHASE 11 (Google) | 731 | 9/9 | 11 |
-| PHASE 12 (Outlook) | 489 | 9/9 | 8 |
+- **Auth**: JWT + OAuth2 + Apple/Google/Outlook
 
 ---
 
-# 6. БАЗА ДАННЫХ
+## База данных
 
-## 📊 Таблицы (17+)
+**Victor-centric schema:**
 
-### Core Tables
-| Таблица | Описание |
-|---------|----------|
-| User | Пользователи, профили, аутентификация |
-| Product | Каталог товаров |
-| Order | Заказы |
-| OrderItem | Позиции заказов |
-
-### Contact Integration (PHASE 10-12)
-| Таблица | Описание | PHASE |
-|---------|----------|-------|
-| AppleContact | iOS контакты | PHASE 10 |
-| AppleContactSync | Синхронизация iOS | PHASE 10 |
-| GoogleContact | Android контакты | PHASE 11 |
-| GoogleContactSync | Синхронизация Android | PHASE 11 |
-| OutlookContact | Web контакты | PHASE 12 |
-| OutlookContactSync | Синхронизация Outlook | PHASE 12 |
-
-### Analytics & Privacy
-| Таблица | Описание |
-|---------|----------|
-| Analytics | Event tracking |
-| GDPRLog | Privacy audit logs |
-
-## 🔗 Schema Source of Truth
-
-**MASTER**: `97k-backend/prisma/schema.prisma`  
-**REPLICA**: `97k-database/prisma/schema.prisma` (synced)
+- victor_core (Профиль Виктора)
+- victor_observations (НАБЛЮДЕНИЯ ГЛАВНЫЙ ИСТОЧНИК)
+- victor_iphone_contacts (Контакты из iPhone)
+- victor_meetings (Встречи)
+- victor_projects (Проекты)
+- victor_documents (Документы)
+- city_events (События города)
+- activity_logs (Логи)
 
 ---
 
-# 7. API ENDPOINTS
+## API Endpoints
 
-## 🔐 Auth (`/api/auth/*`)
-| Method | Endpoint | Описание |
-|--------|----------|----------|
-| POST | `/api/auth/register` | Регистрация |
-| POST | `/api/auth/login` | Вход |
-| POST | `/api/auth/refresh` | Обновление токена |
-| POST | `/api/auth/logout` | Выход |
+### Главные (для Виктора):
 
-## 👤 Users (`/api/users/*`)
-| Method | Endpoint | Описание |
-|--------|----------|----------|
-| GET | `/api/users/me` | Текущий профиль |
-| PATCH | `/api/users/me` | Обновление профиля |
-| GET | `/api/users/:id` | Профиль по ID (admin) |
-
-## 📦 Products (`/api/products/*`)
-| Method | Endpoint | Описание |
-|--------|----------|----------|
-| GET | `/api/products` | Список товаров |
-| GET | `/api/products/:id` | Товар по ID |
-| POST | `/api/products` | Создать товар (admin) |
-
-## 📋 Orders (`/api/orders/*`)
-| Method | Endpoint | Описание |
-|--------|----------|----------|
-| GET | `/api/orders` | Мои заказы |
-| GET | `/api/orders/:id` | Заказ по ID |
-| POST | `/api/orders` | Создать заказ |
-| PATCH | `/api/orders/:id` | Обновить заказ |
-
-## 🍎 Apple Contacts (`/api/apple-contacts/*`) — PHASE 10
-| Method | Endpoint | Описание |
-|--------|----------|----------|
-| POST | `/api/apple-contacts/sync` | Синхронизация |
-| GET | `/api/apple-contacts/status` | Статус |
-| POST | `/api/apple-contacts/conflicts/:id/resolve` | Разрешить конфликт |
-| DELETE | `/api/apple-contacts/disconnect` | Отключить |
-
-## 🤖 Google Contacts (`/api/google-contacts/*`) — PHASE 11
-| Method | Endpoint | Описание |
-|--------|----------|----------|
-| POST | `/api/google-contacts/sync` | Синхронизация |
-| GET | `/api/google-contacts/status` | Статус |
-| POST | `/api/google-contacts/conflicts/:id/resolve` | Разрешить конфликт |
-| DELETE | `/api/google-contacts/disconnect` | Отключить |
-
-## 📧 Outlook Contacts (`/api/outlook-contacts/*`) — PHASE 12
-| Method | Endpoint | Описание |
-|--------|----------|----------|
-| POST | `/api/outlook-contacts/sync` | Синхронизация |
-| GET | `/api/outlook-contacts/status` | Статус |
-| POST | `/api/outlook-contacts/conflicts/:id/resolve` | Разрешить конфликт |
-| DELETE | `/api/outlook-contacts/disconnect` | Отключить |
-
-## 📊 Analytics (`/api/analytics/*`)
-| Method | Endpoint | Описание |
-|--------|----------|----------|
-| POST | `/api/analytics/track` | Track event |
-| GET | `/api/analytics/events` | Get events |
-
-## 🔒 GDPR (`/api/gdpr/*`)
-| Method | Endpoint | Описание |
-|--------|----------|----------|
-| GET | `/api/gdpr/export` | Export user data |
-| DELETE | `/api/gdpr/delete` | Delete user data |
+```
+GET    /api/victor/profile
+POST   /api/victor/observations
+GET    /api/victor/observations
+GET    /api/victor/dashboard
+POST   /api/victor/contacts/sync (iPhone)
+POST   /api/telegram/webhook
+GET    /api/analytics/dashboard
+```
 
 ---
 
-# 8. РАЗВЕРТЫВАНИЕ
-
-## 🐳 Docker
+## Развертывание
 
 ```bash
-# Build
-docker build -t 97k-backend:latest .
-
-# Run
-docker run -p 3000:3000 --env-file .env 97k-backend:latest
-
-# Docker Compose (full stack)
 docker-compose up -d
-```
-
-## ☸️ Kubernetes
-
-```bash
-# Apply manifests
 kubectl apply -f k8s/
-
-# Check status
-kubectl get pods -n 97k
-```
-
-## 🚀 Production Deployment
-
-```bash
-# Deploy to DigitalOcean
-./scripts/deploy-to-droplet.sh
-```
-
-## 🔧 Environment Variables
-
-```env
-# Database
-DATABASE_URL="postgresql://user:password@localhost:5432/97k_db"
-
-# JWT
-JWT_SECRET="your-super-secret-key"
-JWT_EXPIRATION="24h"
-
-# Supabase
-SUPABASE_URL="https://xxx.supabase.co"
-SUPABASE_KEY="xxx"
-
-# CORS
-CORS_ORIGIN="http://localhost:3001,https://97k.ru"
-
-# Environment
-NODE_ENV="development"
-PORT=3000
 ```
 
 ---
 
-# 9. ФАЗЫ РАЗРАБОТКИ
+## Фазы разработки
 
-## 📈 Стратегические фазы (4)
-
-| Фаза | Описание | Технические фазы |
-|------|----------|------------------|
-| **MVP** | Core features | PHASE 1-3 |
-| **B2B** | Enterprise | PHASE 4-6 |
-| **Mobile** | Integration | PHASE 7-9 |
-| **Cross-Platform** | Contacts | PHASE 10-12 |
-
-## 📋 Технические фазы (12)
-
-| PHASE | Название | Статус | LOC |
-|-------|----------|--------|-----|
-| 1 | Authentication (JWT) | ✅ Complete | - |
-| 2 | User Management | ✅ Complete | - |
-| 3 | Products Catalog | ✅ Complete | - |
-| 4 | Orders System | ✅ Complete | - |
-| 5 | B2B Pricing | ✅ Complete | - |
-| 6 | Contracts & Legal | ✅ Complete | - |
-| 7 | Gmail Integration | ✅ Complete | - |
-| 8 | Analytics & Events | ✅ Complete | - |
-| 9 | GDPR & Privacy | ✅ Complete | - |
-| 10 | Apple Contacts (iOS) | ✅ Complete | 880 |
-| 11 | Google Contacts (Android) | ✅ Complete | 731 |
-| 12 | Outlook Contacts (Web) | ✅ Complete | 489 |
-| 13 | Frontend (React) | 🟡 Planned | - |
-
-## 🔗 Связь с super-brain TASK-v5
-
-| PHASE | Focus | TASK-v5 Connection |
-|-------|-------|-------------------|
-| 1-3 | Foundation | Foundation (v4.1) |
-| 4-6 | B2B | Integration |
-| 7-9 | Mobile | Data Pipeline |
-| 10-12 | Contacts | v5.0 Upgrade |
+- ✅ PHASE 1-12: Backend COMPLETE (VICTOR-CENTRIC)
+- 🟡 PHASE 13: Analytics Dashboard (IN PROGRESS)
+- 🔜 PHASE 14+: Advanced Features PLANNED
 
 ---
 
-# 10. БЫСТРЫЕ ССЫЛКИ
+## Быстрые ссылки
 
-## 🌟 Главные документы
-
-| Документ | Ссылка |
-|----------|--------|
-| **MASTER_README.md** | [Открыть](https://github.com/vik9541/super-brain-digital-twin/blob/main/MASTER_README.md) |
-| **STRUCTURE.md** | [Открыть](https://github.com/vik9541/super-brain-digital-twin/blob/main/STRUCTURE.md) |
-| **SUPER_BRAIN_v5.0_GLOBAL_EDITION.md** | [Открыть](https://github.com/vik9541/super-brain-digital-twin/blob/main/SUPER_BRAIN_v5.0_GLOBAL_EDITION.md) |
-| **PHASE_12_FINAL_REPORT.md** | [Открыть](https://github.com/vik9541/97k-backend/blob/main/PHASE_12_FINAL_REPORT.md) |
-
-## 📦 Репозитории
-
-| Репозиторий | Ссылка |
-|-------------|--------|
-| super-brain-digital-twin | [GitHub](https://github.com/vik9541/super-brain-digital-twin) |
-| 97k-backend | [GitHub](https://github.com/vik9541/97k-backend) |
-| 97k-frontend | [GitHub](https://github.com/vik9541/97k-frontend) |
-| 97k-database | [GitHub](https://github.com/vik9541/97k-database) |
-| 97k-infrastructure | [GitHub](https://github.com/vik9541/97k-infrastructure) |
-| 97k-n8n-workflows | [GitHub](https://github.com/vik9541/97k-n8n-workflows) |
-| 97k-97v-specs | [GitHub](https://github.com/vik9541/97k-97v-specs) |
-
-## 📊 Статус проекта
-
-| Компонент | Статус | Прогресс |
-|-----------|--------|----------|
-| Backend API | ✅ PHASE 12 Complete | 100% |
-| Database | ✅ Synced | 100% |
-| Infrastructure | ✅ Production | 100% |
-| Automation | ✅ 4 Workflows | 100% |
-| Frontend | 🟡 PHASE 13 Planned | 0% |
-
-## 💰 Оценка стоимости
-
-| Метрика | Значение |
-|---------|----------|
-| **Valuation** | $450K - $900K |
-| **Status** | Series A Ready |
-| **Total LOC** | 5500+ |
-| **Total Tests** | 117+ |
-| **Total Docs** | 150+ |
+- 🎯 [SUPER_BRAIN_v5.0_UPDATED_ARCHITECTURE.md](https://github.com/vik9541/super-brain-digital-twin/blob/main/SUPER_BRAIN_v5.0_UPDATED_ARCHITECTURE.md) - **Victor-Centric System**
+- 📍 [MASTER_README.md](https://github.com/vik9541/super-brain-digital-twin/blob/main/MASTER_README.md)
+- 🆕 [STRUCTURE.md](https://github.com/vik9541/super-brain-digital-twin/blob/main/STRUCTURE.md)
+- 📊 [PHASE_13_ANALYTICS_COMPLETE_TZ.md](https://github.com/vik9541/super-brain-digital-twin/blob/main/PHASE_13_ANALYTICS_COMPLETE_TZ.md)
 
 ---
 
-## 📞 Контакты
+## 📋 Контакты
 
-- **GitHub**: [vik9541](https://github.com/vik9541)
-- **Main Domain**: 97v.ru
-- **API Domain**: api.97k.ru
-- **Web Domain**: www.97k.ru
-
----
-
-**Документ создан**: 13 декабря 2025  
-**Версия документа**: 1.0  
-**Статус**: 🟢 COMPLETE  
-**Автор**: GitHub Copilot + @vik9541
+- **Пычный админ**: Лаврентьев Виктор Петрович
+- **Email системы**: info@97v.ru
+- **Telegram Bot**: @97v_bot
+- **Role**: PRIMARY_ADMIN (Level 100)
 
 ---
 
-# 🚀 С ЧЕГО НАЧАТЬ?
+**Статус:** 🟢 PRODUCTION READY FOR VICTOR LAVRENTIEV  
+**Версия**: v5.0 GLOBAL (Updated)  
 
-1. **Читай** [MASTER_README.md](https://github.com/vik9541/super-brain-digital-twin/blob/main/MASTER_README.md)
-2. **Изучи** [STRUCTURE.md](https://github.com/vik9541/super-brain-digital-twin/blob/main/STRUCTURE.md)
-3. **Посмотри** [PHASE_12_FINAL_REPORT.md](https://github.com/vik9541/97k-backend/blob/main/PHASE_12_FINAL_REPORT.md)
-4. **Запусти** локально: `npm run start:dev`
-
-**Удачи в изучении! 🎯**
+**СИСТЕМА VICTOR-CENTRIC ПОЛНОСТЬЮ ГОТОВА! 🚀**
