@@ -197,11 +197,29 @@ model Contact {
   // Basic contact info
   firstName        String?   @db.VarChar(255)
   lastName         String?   @db.VarChar(255)
+  fullName         String?   @db.VarChar(512) // Victor iCloud: combined name
   email            String?   @db.VarChar(255)
   phone            String?   @db.VarChar(50)
   company          String?   @db.VarChar(255)
   jobTitle         String?   @db.VarChar(255)
   notes            String?   @db.Text
+  
+  // Victor iCloud Extended Fields
+  phoneNumbers     Json?     // [{type: "mobile", number: "+7..."}]
+  emails           Json?     // [{type: "work", email: "..."}]
+  addresses        Json?     // [{type: "work", street: "...", city: "..."}]
+  socialProfiles   Json?     // [{service: "telegram", username: "@..."}]
+  birthday         DateTime?
+  tags             String[]  // Теги для группировки
+  
+  // Photo storage
+  photoUrl         String?   @db.VarChar(512)
+  photoData        Bytes?    // Binary photo data
+  
+  // Engagement tracking
+  engagementScore  Int       @default(0) // 0-100
+  lastInteractionAt DateTime?
+  totalInteractions Int      @default(0)
   
   // Apple Contacts Integration (PHASE 10)
   appleContactId   String?   @db.VarChar(255)
@@ -229,10 +247,13 @@ model Contact {
   
   @@index([userId])
   @@index([email])
+  @@index([fullName])
+  @@index([company])
   @@index([appleContactId])
   @@index([googleContactId])
   @@index([outlookContactId])
   @@index([sourceType])
+  @@index([tags])
   @@map("contacts")
 }
 
