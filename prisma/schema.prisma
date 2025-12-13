@@ -191,7 +191,7 @@ model OrderItem {
 
 model Contact {
   id               BigInt    @id @default(autoincrement())
-  workspaceId      BigInt
+  userId           String    @db.VarChar(255) // User who owns this contact
   
   // Basic contact info
   firstName        String?   @db.VarChar(255)
@@ -213,7 +213,7 @@ model Contact {
   // Relations
   syncConflicts    SyncConflict[]
   
-  @@index([workspaceId])
+  @@index([userId])
   @@index([email])
   @@index([appleContactId])
   @@map("contacts")

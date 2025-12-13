@@ -85,7 +85,7 @@ export class AppleContactsService {
           {
             AND: [
               { email: contactDto.email },
-              { workspaceId: BigInt(userId) }, // Assuming userId maps to workspaceId
+              { userId: userId },
             ],
           },
         ],
@@ -96,7 +96,7 @@ export class AppleContactsService {
       // Create new contact
       await this.prisma.contact.create({
         data: {
-          workspaceId: BigInt(userId),
+          userId: userId,
           appleContactId: contactDto.appleContactId,
           firstName: contactDto.firstName,
           lastName: contactDto.lastName,

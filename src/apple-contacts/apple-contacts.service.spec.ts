@@ -91,7 +91,7 @@ describe('AppleContactsService', () => {
       const userId = 'user123';
       const existingContact = {
         id: BigInt(1),
-        workspaceId: BigInt(1),
+        userId: 'user123',
         appleContactId: 'apple123',
         email: 'john@example.com',
         firstName: 'John',
